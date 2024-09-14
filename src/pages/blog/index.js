@@ -1,18 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 
-export default function Home({ data }) {
+export default function Blog({ data }) {
   //highlight-line
   return (
     <Layout>
-      <SEO title="home" />
-      {/* highlight-start */}
+      <SEO title="blog" />
       <h1>Мой блог на WordPress</h1>
-          <Link to='/blog'>
-            <p>Блог</p>
-          </Link>
+      {console.log(data)}
       <h4>Посты</h4>
       {data.allWpPost.nodes.map(node => (
         <div key={node.slug}>
@@ -22,7 +19,6 @@ export default function Home({ data }) {
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       ))}
-      {/* highlight-end */}
     </Layout>
   )
 }
