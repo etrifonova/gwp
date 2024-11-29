@@ -1,0 +1,44 @@
+header {
+  flex-shrink: 0;
+    /* Prevents header and footer from shrinking */
+    width: 100%;
+  background-color: #031b34;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_logo {
+  grid-column: 2 / span 3;
+}
+
+nav {
+  grid-column: 10 / span 2;
+}
+
+.nav-link {
+  font-family: 'Manrope', sans-serif;
+  font-size: var(--font-lg);
+  text-decoration: none;
+  color: var(--white);
+}
+
+.nav_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
+
+.nav_list li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.nav_list>li>a {
+  font-size: 1rem;
+}

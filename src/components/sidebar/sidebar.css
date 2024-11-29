@@ -1,0 +1,12 @@
+.sidebar_container {
+    min-width: 15rem;
+    padding: 0;
+    grid-area: b;
+    padding-right: 4rem;
+}
+
+.sidebar_container h4 {
+    margin: 0;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}

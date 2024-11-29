@@ -1,42 +1,70 @@
-import React from "react"
+import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
+import Hero from "../components/hero/hero"
 
 export default function Home({ data }) {
-  //highlight-line
+  const posts = data.allWpPost.nodes
+
+  // Function to limit excerpt length and add link
+  const getLimitedExcerpt = (htmlString, charLimit, slug) => {
+    // Remove HTML tags
+    const textOnly = htmlString.replace(/<[^>]+>/g, "")
+    // Truncate to specified length and add link if truncated
+    if (textOnly.length > charLimit) {
+      return (
+        <>
+          {textOnly.substring(0, charLimit)}
+          <Link to={`/blog/${slug}`} className="read-more">
+            {" "}
+            [...]
+          </Link>
+        </>
+      )
+    }
+    return textOnly
+  }
+
   return (
     <Layout>
-      <SEO title="home" />
-      {/* highlight-start */}
-      <h1>Мой блог на WordPress</h1>
-          <Link to='/blog'>
-            <p>Блог</p>
-          </Link>
-      <h4>Посты</h4>
-      {data.allWpPost.nodes.map(node => (
-        <div key={node.slug}>
-          <Link to={node.slug}>
-            <p>{node.title}</p>
-          </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+      <Seo title="home" />
+      <Hero />
+      <div className="latestBlogPosts_container">
+        <h1>Блог</h1>
+        <div className="latestBlogPosts_posts">
+          {posts.slice(0, 3).map((post, index) => (
+            <div key={index}>
+              <h4>{post.title}</h4>
+
+              <p>{getLimitedExcerpt(post.excerpt, 200, post.slug)}</p>
+              {console.log(post.slug)}
+              <Link to={`/blog/${post.slug}`}>
+                <p>Читать</p>
+              </Link>
+            </div>
+          ))}
         </div>
-      ))}
-      {/* highlight-end */}
+      </div>
     </Layout>
   )
 }
 
-//highlight-start
 export const pageQuery = graphql`
-query {
-  allWpPost(sort: {date: DESC}) {
-    nodes {
-      title
-      excerpt
-      slug
+  query blogPostsQuery {
+    allWpPost(sort: { date: DESC }) {
+      nodes {
+        title
+        excerpt
+        content
+        slug
+        categories {
+          nodes {
+            name
+            id
+          }
+        }
+      }
     }
   }
-}
 `
-//highlight-end

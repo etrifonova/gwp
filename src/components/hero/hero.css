@@ -1,0 +1,12 @@
+.hero {
+    grid-column: 2 / -2;
+    margin-top: 5rem;
+}
+
+.hero__content {
+    grid-column: 1 / 6;
+}
+
+.hero__image {
+    grid-column: 7 / -1;
+}

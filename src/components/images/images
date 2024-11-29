@@ -1,0 +1,33 @@
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
+const MediaLibraryImages = () => {
+  const data = useStaticQuery(graphql`
+    query MediaLibraryImages {
+      allWpMediaItem {
+        nodes {
+          id
+          title
+          altText
+          mediaItemUrl
+        }
+      }
+    }
+  `)
+console.log(data)
+  return (
+    <div>
+        HELLO
+      {/* {data.allWpMediaItem.nodes.map(image => (
+        <img
+          key={image.id}
+          src={image.mediaItemUrl}
+          alt={image.altText || image.title}
+          title={image.title}
+        />
+      ))} */}
+    </div>
+  )
+}
+
+export default MediaLibraryImages

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
 :root {
   --border-radius: 4px;
   --color-text: #333;
@@ -24,7 +26,28 @@
   --size-content: 54rem;
   --size-gutter: var(--space-5);
   --size-gap: var(--space-6);
+  /* из моего проекта */
+  --font-family: "Manrope", sans-serif;
+  --card-color: #f6f6f6;
+
+  --color-bg: #040c18;
+  --color-dark-bg: #031b34;
+  --color-icon: #4e4e55;
+  --color-blog: #042c54;
+  --color-blog-rgb: 4, 44, 84;
+  --color-subtext: #ff8a71;
+  --color-button: #04aa6d;
+
+  --text-dark: #161925;
+  --text-light: #faf9f6;
+  --green: #08ac6c;
+  --green-rgb: 8, 172, 108;
+  --dark-gray: #536878;
+  --dark-gray-rgb: 83, 104, 120;
+  --light-gray: #f6f6f6;
+  --white: #ffffff;
 }
+
 html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -33,57 +56,67 @@ html {
   line-height: var(--line-height-normal);
   overflow-y: scroll;
 }
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: var(--color-text);
-  font-family: sans-serif;
-  font-family: var(--font-sans);
+  font-family: "Manrope", sans-serif;
+  /* font-family: var(--font-sans); */
   font-weight: normal;
   margin: 0;
   word-wrap: break-word;
 }
+
 a {
   background-color: transparent;
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
+  color: var(--color-blog);
+  font-weight: 600;
   text-underline-offset: 2px;
+  font-size: var(--font-lg);
+  text-decoration: none;
 }
+
 a:active,
 a:hover {
   outline-width: 0;
   text-decoration: none;
+  color: var(--dark-gray);
 }
+
 abbr[title] {
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
   cursor: help;
   text-decoration: none;
 }
+
 b,
 strong {
   font-weight: inherit;
   font-weight: bolder;
 }
+
 dfn {
   font-style: italic;
 }
+
 h1 {
   margin: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   padding: 0;
   line-height: var(--line-height-dense);
   letter-spacing: -0.01em;
 }
+
 h1 > b {
   color: var(--color-primary);
 }
+
 img {
   border-style: none;
   max-width: 100%;
 }
+
 code,
 kbd,
 pre,
@@ -92,6 +125,7 @@ samp {
   font-size: 1em;
   line-height: inherit;
 }
+
 hr {
   box-sizing: content-box;
   overflow: visible;
@@ -104,15 +138,19 @@ hr {
   border: none;
   height: 1px;
 }
+
 * {
   box-sizing: inherit;
 }
+
 *:before {
   box-sizing: inherit;
 }
+
 *:after {
   box-sizing: inherit;
 }
+
 hgroup,
 img,
 figure,
@@ -126,12 +164,14 @@ p {
   padding: 0;
   margin-bottom: var(--space-4);
 }
-ul,
+
+/* ul, */
 ol {
   margin-left: var(--space-4);
   list-style-position: outside;
   list-style-image: none;
 }
+
 pre {
   margin-left: 0;
   margin-right: 0;
@@ -145,57 +185,72 @@ pre {
   word-wrap: normal;
   padding: var(--space-4);
 }
+
 b,
 strong,
 dt,
 th {
   font-weight: bold;
 }
+
 li {
   margin-bottom: calc(var(--space-4) / 2);
 }
+
 ol li,
 ul li {
   padding-left: 0;
 }
+
 li > ol,
 li > ul {
   margin-bottom: calc(var(--space-4) / 2);
   margin-left: var(--space-4);
   margin-top: calc(var(--space-4) / 2);
 }
+
 blockquote *:last-child {
   margin-bottom: 0;
 }
+
 li *:last-child {
   margin-bottom: 0;
 }
+
 p *:last-child {
   margin-bottom: 0;
 }
+
 li > p {
   margin-bottom: calc(var(--space-4) / 2);
 }
+
 p {
-  max-width: 680px;
+  /* max-width: 680px; */
 }
+
 code {
   font-size: 0.875rem;
 }
+
 kbd {
   font-size: 0.875rem;
 }
+
 samp {
   font-size: 0.875rem;
 }
+
 abbr {
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
   cursor: help;
 }
+
 acronym {
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
   cursor: help;
 }
+
 tt,
 code {
   background-color: var(--color-code-bg);
@@ -206,9 +261,11 @@ code {
   padding-top: 0.25em;
   word-break: normal;
 }
+
 pre code {
   background: none;
 }
+
 code:before,
 code:after,
 tt:before,
@@ -216,9 +273,141 @@ tt:after {
   content: "\00a0";
   letter-spacing: -0.2em;
 }
+
 pre code:before,
 pre code:after,
 pre tt:before,
 pre tt:after {
   content: none;
+}
+
+/* мои стили */
+.page-container {
+  /* position: relative;
+  min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensures it takes up full viewport height */
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 2rem;
+}
+
+main {
+  margin: 0;
+  padding: 3rem 0;
+  flex-grow: 1;
+}
+
+/* BLOG STYLES */
+.blog {
+  margin: 5rem 0 7rem 0;
+  grid-column: 3 / -3;
+  display: grid;
+  /* grid-gap: 1rem; */
+  grid-template-areas:
+    "a a a a"
+    "b c c c";
+}
+
+.blog_posts {
+  grid-area: c;
+}
+
+.blog-post {
+  margin: 5rem 0;
+  grid-column: 4 / -4;
+}
+
+.latestBlogPosts_container {
+  margin-top: 5rem;
+  grid-column: 2 / -2;
+}
+
+.latestBlogPosts_container h1 {
+  text-align: center;
+}
+
+.latestBlogPosts_posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+}
+
+/* BUTTONS - GENERAL */
+
+button {
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* SIDEBAR */
+
+.category_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category_list li {
+  margin: 0;
+  padding: 0;
+}
+
+.category_btn {
+  color: var(--dark-gray);
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+}
+
+.category_btn:hover {
+  font-weight: bold;
+}
+
+button.active {
+  color: var(--color-blog);
+  font-weight: bold;
+}
+
+.post_category {
+  font-size: 0.9rem;
+}
+
+/* PAGINATION */
+
+.pagination {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  opacity: 0.75;
+  background-color: var(--color-blog);
+  color: white;
+  font-weight: bold;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ERROR PAGE */
+.error {
+  grid-column: 2 / -2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

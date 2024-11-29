@@ -1,0 +1,21 @@
+.blog__breadcrumb {
+  grid-area: a;
+}
+
+.breadcrumb_container {grid-area: a;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.breadcrumb_link {
+  color: var(--dark-gray);
+  font-size: 1rem;
+}
+
+.breadcrumb_chevron {
+  margin: 0 1rem;
+  color: var(--dark-gray);
+  font-size: 0.75rem;
+}

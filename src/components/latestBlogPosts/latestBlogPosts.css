@@ -1,0 +1,14 @@
+.latestBlogPosts_container {
+    margin-top: 5rem;
+    grid-column: 2 / -2;
+}
+
+.latestBlogPosts_container h1 {
+    text-align: center;
+}
+
+.latestBlogPosts_posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+}
