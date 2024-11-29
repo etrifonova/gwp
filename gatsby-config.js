@@ -9,7 +9,6 @@
  */
 module.exports = {
 
-  pathPrefix: "/gwp",
   siteMetadata: {
     title: `Актуальный английский`,
     description: `Блог про актуальный английский`,
